@@ -1,28 +1,53 @@
 <html>
-<head><title>Welcome to Irisdata Example</title></head>
-<body align='center' bgcolor = 'grey'>
-
-<form method='post'>
-<table align = 'center' bgcolor = ' #f0a594 '>
-<tr><td>
-<table align='center' bgcolor = 'grey'>
-<tr><td colspan = 2><h3 style="background-color:DodgerBlue;">Please Enter iris flower features</h3></td></tr>
-<tr><td>Enter Petal Length</td><td><input type='text' name = 'num1' value = "{{num1}}"</td></tr>
-<tr><td>Enter Petal Width</td><td><input type='text' name = 'num2' value = "{{num2}}"</td></tr>
-<tr><td>Enter Sepal Length</td><td><input type='text' name = 'num3' value = "{{num3}}"</td></tr>
-<tr><td>Enter Sepal width</td><td><input type='text' name = 'num4' value = "{{num4}}"</td></tr>
-<tr><td colspan = 2><input type='submit' value ='Predict Iris'> </td></tr>
-</table>
-</td></tr>
-<tr><td>
-<table align = 'center'>
-<tr><td colspan=2><p align='center'>Prediction of iris data set is :{{result}}</p></td></tr>
-<tr><td colspan=2><img src={{pic}}></td></tr>
-</table>
-</td></tr>
-</table>
-
-</form>
+<body align='center' bgcolor = 'black'>
+      
+	<table align = 'center' bgcolor = ' #f0a594 '>
+	  
+		<tr><td colspan = 2>
+			<h1 style="background-color:DodgerBlue;"><center>Welcome to "Automatic Image Captioning"</center></h3>
+			<h2 style="background-color:red; color:white; font-size:26px" ><center>Group-15 / Cohort-20</center></h3>
+		</td></tr>
+		
+		<tr><td>
+		<table align='center' bgcolor = 'white'>
+	  
+			<form action="http://localhost:8000/predicted" method="POST" enctype="multipart/form-data">
+			<!--form method="POST" enctype="multipart/form-data">-->
+				<input type="file" name="file" />
+				<input type="submit"/>
+			</form>
+			
+		    <br><br>
+			
+			<tr><td>
+			<table align = 'center'>
+				<!--<tr><td colspan=2><p align='center'>Predicted Caption is</p></td></tr>-->
+				<tr><td colspan=2><center><h3 style="background-color:coral;">Predicted Caption is: </h3></center></td></tr>
+				<!--<tr><td colspan=2><center><h3 style="background-color:blue;color:white; font-size:22px"> "VGG16 + CNN + LSTM": </h3></center></td></tr>
+				<tr><td colspan=2><p align='center'>{{result1}}</p></td></tr>-->
+				<tr><td colspan=2><center><h3 style="background-color:blue;color:white; font-size:22px"> "VGG16 + CNN + LSTM": </h3></center>
+				<p align='center'>{{result1}}</p></td></tr><br>
+				<tr><td colspan=2><center><h3 style="background-color:blue;color:white; font-size:22px"> "Inception_v3 + CNN + LSTM": </h3></center></td></tr>
+				<tr><td colspan=2><p align='center'>{{result2}}</p></td></tr><br>
+				<!--<tr><td colspan=2><img src={{pic}}></td></tr>-->
+				<!--<tr><td colspan=2><img src="data:image/jpeg;base64,{{pic}}" /></td></tr>-->
+					
+				{% if pic %}
+					<tr><td colspan=2><center><h5 style="background-color:powderblue;">Rendered Image</h5></center></td></tr>
+					<tr><td colspan=2><p align='center'><img src="data:image/jpeg;base64,{{pic}}" /></p></td></tr>
+				{% else %}
+					<tr><td colspan=2><center><h5>Image will be Rendered here...</h5></td></tr>
+				{% endif %}
+		
+				<!--<tr><td colspan=2><img src='https://cdn.pixabay.com/photo/2017/05/24/08/22/iris-2339883_1280.jpg'></td></tr>-->
+				<!--<tr><td colspan=2><img src='10815824_2997e03d76.jpg'></td></tr>-->
+				
+			</table>
+			</td></tr>
+		</table>
+		</td></tr>
+			
+	</table>
+	
 </body>
-
 </html>
