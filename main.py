@@ -5,7 +5,7 @@ from fastapi.responses import HTMLResponse, FileResponse
 import base64
 from fastapi.staticfiles import StaticFiles
 #import shutil
- 
+
 import numpy as np
 import os
 import pickle
@@ -40,23 +40,28 @@ logging.warning('This message will get logged on to a file')
 
 #UPDATE
 #pickle_features = pickle.load(open('features.pkl', 'rb'))
-FEATURES_PATH = r'C:\B20\Dataset\Models\VGG16\VGG16_features.pkl'
+#FEATURES_PATH = r'C:\B20\Dataset\Models\VGG16\VGG16_features.pkl'
+FEATURES_PATH = r'.\Models\VGG16\VGG16_features.pkl'
 pickle_features_1 = pickle.load(open(FEATURES_PATH, 'rb'))
 
 #UPDATE
-model_path = r'C:\B20\Dataset\Models\VGG16\VGG16_LSTM_ImageCaptionModel.h5'
+#model_path = r'C:\B20\Dataset\Models\VGG16\VGG16_LSTM_ImageCaptionModel.h5'
+model_path = r'.\Models\VGG16\VGG16_LSTM_ImageCaptionModel.h5'
 model_1 = tf.keras.models.load_model(model_path)
 
 # UPDATE
-FEATURES_PATH = r'C:\B20\Dataset\Models\Inception_v3\InceptionV3features.pkl'
+#FEATURES_PATH = r'C:\B20\Dataset\Models\Inception_v3\InceptionV3features.pkl'
+FEATURES_PATH = r'.\Models\Inception_v3\InceptionV3features.pkl'
 pickle_features_2 = pickle.load(open(FEATURES_PATH, 'rb'))
 
 #UPDATE
-model_path = r'C:\B20\Dataset\Models\Inception_v3\InceptionV3ImageCaption.h5'
+#model_path = r'C:\B20\Dataset\Models\Inception_v3\InceptionV3ImageCaption.h5'
+model_path = r'.\Models\Inception_v3\InceptionV3ImageCaption.h5'
 model_2 = tf.keras.models.load_model(model_path)  
 
 #UPDATE
-CAPTIONS_DIR = r'C:\B20\Dataset\Flicker8k_Text\Flickr8k.token.txt'
+#CAPTIONS_DIR = r'C:\B20\Dataset\Flicker8k_Text\Flickr8k.token.txt'
+CAPTIONS_DIR = r'.\Flicker8k_Text\Flickr8k.token.txt'
 
 with open(os.path.join(CAPTIONS_DIR), 'r') as f:
     captions_doc = f.read()
